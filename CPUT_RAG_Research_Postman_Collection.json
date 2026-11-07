@@ -1,0 +1,405 @@
+{
+  "info": {
+    "name": "CPUT Capstone: MRTT Leave Policy (HR Manual :01) RAG vs Baseline Proof",
+    "description": "End-to-end empirical verification suite for 'Reliability Enhancement Framework for Retrieval-Augmented Language Models' using the Mpumalanga Regional Training Trust (MRTT) Leave Policy (HR Manual :01, Effective Date: 29 March 2021).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "baseline_q1_id",
+      "value": ""
+    },
+    {
+      "key": "rag_q1_id",
+      "value": ""
+    },
+    {
+      "key": "baseline_q2_id",
+      "value": ""
+    },
+    {
+      "key": "rag_q2_id",
+      "value": ""
+    },
+    {
+      "key": "baseline_q3_id",
+      "value": ""
+    },
+    {
+      "key": "rag_q3_id",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Ingest MRTT Leave Policy (Clears Old Vectors + Indexes HR Manual :01)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"MRTT Leave Policy (HR Manual :01)\",\n  \"domain\": \"HR\",\n  \"clear_existing\": true,\n  \"content\": \"MPUMALANGA REGIONAL TRAINING TRUST (MRTT) - Empowerment Through Training. LEAVE POLICY. Policy No.: HR Manual :01. Effective Date: 29 March 2021. Revised Date: 29 March 2021.\\n\\nAPPROVAL OF POLICY: Approved and signed by Ms TE Mawelele, Acting Chairperson of the Board, on 29-03-2021. Monitoring and Evaluation (Clause 19): Programme: Planning and Performance Information, Name and Position: FW Magwandana: Manager.\\n\\n3. SCOPE OF THE POLICY: 3.1 Applicable to all Employees regardless of position within MRTT; fixed term contract employees are subject to fixed term contract terms. 3.3 Accumulated leave days of an Employee on a fixed term contract whose contract is extended/renewed will be carried over and such accumulated leave days should not exceed 25 days. Any excess leave days will be paid at the end of the contract period.\\n\\n4. PRINCIPLES OF THE POLICY: 4.3 An Employee is entitled to cancel his request for any leave or approved leave in consultation with his Line Manager. 4.4 Approved leave may be withdrawn at any time by the Line Manager in the interest of MRTT operations after consulting the Employee. 4.5 If an Employee falls sick during approved annual leave, such Employee shall NOT be entitled to sick leave or request MRTT to substitute the period that he was sick for sick leave when he returns to work. 4.6 Public holidays are excluded from calculation of any leave days.\\n\\n5. APPLICABLE LEGISLATION: 5.1.1 Labour Relations Act No. 66 of 1995 (LRA); 5.1.2 Basic Conditions of Employment Act No. 75 of 1997 (BCEA).\\n\\n6. DEFINITIONS: 6.1.1 Annual Leave Cycle is a period of 12 months with MRTT. 6.1.3 HR Sub-Programme means the Human Resources department. 6.1.7 MRTT means the Mpumalanga Regional Training Trust, a non-profit company, bearing registration number: 1993/006132/08.\\n\\n7. ANNUAL LEAVE: 7.1 Employees accrue 22 annual leave days per Annual Leave Cycle. 7.2 Annual leave accrues at the rate of 1 hour for every 17 hours worked, or 1 day for every 17 days worked, or 1.25 days per month, the total permitted minimum being 15 days per annum on full pay. 7.4 In accordance with the Annual Leave Amendment Regulations of 7 June 2020 (coronavirus), the employee must utilise 15 days of leave during an Annual Leave Cycle; unused leave due to work demands may be carried forward and taken only in the two leave years immediately following. 7.6 Annual leave shall only be accumulated to a maximum of 25 days, approved by the Line Manager and sent to HR Sub-Programme. 7.7 Annual leave days cannot in any circumstance be cashed out, except upon termination of employment, retirement, permanent disability (7.7.1) or death (7.7.2, paid to estate or designated dependant). 7.8 If an Employee does not have sufficient annual leave days, 10 days unpaid leave may be granted by MRTT in its absolute discretion.\\n\\n8. SICK LEAVE: 8.1 During every 36 months cycle, an Employee is entitled to paid sick leave equal to the number of days normally worked in a 6 week period (30 days sick leave on full pay across 3 years for a 5-day week employee). 8.3 Sick leave cannot be accumulated nor paid out upon termination. 8.4 Medical certificate required if absent for more than 2 consecutive days or frequently absent. 8.5 MRTT has the right to refer an Employee for a second medical opinion at MRTT's expense for absence of more than 2 consecutive days. 8.7 No sick leave shall be granted if illness is due to alcohol or substance abuse. 8.8 Employees hospitalised at the instance of MRTT for incapacity due to ill health or injury: time spent in an institution will be regarded as annual leave. 8.9 If the Employee has already been granted the maximum number of days of sick leave in a sick leave cycle, and before the commencement of the new sick leave cycle, and due to serious health problems is still unfit to report for work, the CEO may, in his discretion, extend the sick leave by 20 days to the Employee.\\n\\n9. SPECIAL LEAVE: 9.1 MRTT will grant Employees a maximum of 30 days for special leave with full pay over a 3 year cycle when an Employee has exhausted other categories of leave or is subjected to a court of law/Tribunal or rehabilitation institution at the courtesy of the entity. 9.2 Special leave cannot be paid out upon termination.\\n\\n10. FAMILY RESPONSIBILITY LEAVE: 10.1 Entitled only if employed by MRTT for longer than 4 months and works at least 4 days a week. 10.2 An Employee is entitled to 5 (five) paid days of family responsibility leave during an Annual Leave Cycle (if child is born, sick, or death of spouse, life partner, parent, adoptive parent, grandparent, child, adopted child, grand-child or sibling).\\n\\n11. SPORT LEAVE: 11.1 Utilised by an Employee who participates in or officiates a sport at Provincial or National level, at trials or an actual competition. 11.2 An Employee is entitled to 10 paid days of sport leave during an Annual Leave Cycle.\\n\\n12. STUDY LEAVE: 12.1 Utilised to prepare and/or sit for examinations and/or compulsory in-contact classes. 12.2 The entity will grant 2 days study leave per subject per annum (1 day to prepare and 1 day to write exams) with a maximum of no more than 16 working days study leave in total per annum, which is translated into 8 module exams per annum. Re-examinations, aegrotat and supplementary examinations shall be deducted from the 16 days of study leave allocated. 12.3 No study leave will be granted to an Employee to complete a written assignment. 12.4 An Employee shall be entitled to study leave if he has a minimum of 1 (one) year uninterrupted service with MRTT.\\n\\n13. UNPAID LEAVE: 13.1 Not granted if annual leave days are not yet fully utilised. 13.2 MRTT may in its discretion grant unpaid leave to a maximum of 10 working days in a leave cycle. 13.3 If unpaid leave is for a continuous period of a calendar month or more, an Employee will be liable for payment for the full period of MRTT's contributions to the Pension / Provident Fund. 13.4 No leave or pro rata bonus accrues during unpaid leave. 13.5 Unpaid leave is deemed employment for payment of long service award.\\n\\n14. MATERNITY LEAVE: 14.1 Employees due to give birth are entitled to at least 4 (four) consecutive months of maternity leave with full pay. Fixed Term employees contracted for a period of 12 months or more shall be entitled to 4 consecutive months of maternity leave with full pay. Fixed Term employees contracted for a period lesser than 12 months shall claim maternity benefits through UIF benefits from the Department of Employment and Labour, which is calculated at a rate between 38% - 58% of the employee salary up to a maximum of R12 478. If the salary is R12 478 or more, the employee will receive R155.89 per day x 30 days (about R4 676 per month). 14.2 May commence from 4 weeks before expected date of birth. 14.3 An Employee who has a miscarriage during the third trimester of pregnancy or bears a stillborn child is entitled to maternity leave for 6 (six) weeks after the miscarriage or stillbirth. 14.4 No Employee may work for 6 weeks after birth unless certified fit by a medical practitioner or midwife. 14.7 A copy of the birth certificate must be submitted to the HR Sub-Programme within 4 (four) months after the date of birth of the child.\\n\\n15. PARENTAL LEAVE: 15.1 Entitled to at least 10 consecutive days parental leave.\\n\\n16. ADOPTION LEAVE: 16.1 Adoptive parent of a child below the age of two is entitled to adoption leave of at least 10 weeks consecutively, or the 10-day parental leave in clause 15.\\n\\n17. COMMISSIONING PARENTAL LEAVE: 17.1 Commissioning parent in a surrogate motherhood agreement is entitled to commissioning parental leave of at least 10 weeks consecutively, or the parental leave in clause 15.\\n\\n18. LEAVE PROCEDURES: 18.2.1 Sick leave absence must be reported to the Line Manager at least 2 hours before commencement of the Employee's workday. 18.3.2 Maternity leave application form must be submitted at least 4 weeks before commencement. 18.3.3/18.3.4/18.3.5 Parental, adoption, and commissioning parental leave forms must be submitted at least 1 month before.\\n\\n21. AMENDMENTS: 21.2 MRTT reserves the right to make amendments in writing with written notice of 1 calendar month after proper consultation.\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/documents/ingest",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "documents",
+            "ingest"
+          ]
+        }
+      }
+    },
+    {
+      "name": "2. Pair 1 (Baseline - Control): Maternity Leave & Fixed-Term UIF Rules",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "pm.collectionVariables.set('baseline_q1_id', jsonData.query_id);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"hr-baseline-session-01\",\n  \"query\": \"According to the MRTT Leave Policy (HR Manual :01), what are the exact maternity leave entitlements for permanent and fixed-term employees contracted for 12 months or more versus fixed-term employees contracted for less than 12 months, including the UIF percentage range, maximum salary cap, and daily/monthly payout in Rands?\",\n  \"mode\": \"baseline\",\n  \"domain\": \"HR\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/chat",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "chat"
+          ]
+        }
+      }
+    },
+    {
+      "name": "3. Pair 1 (RAG - Treatment): Maternity Leave & Fixed-Term UIF Rules",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "pm.collectionVariables.set('rag_q1_id', jsonData.query_id);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"hr-rag-session-01\",\n  \"query\": \"According to the MRTT Leave Policy (HR Manual :01), what are the exact maternity leave entitlements for permanent and fixed-term employees contracted for 12 months or more versus fixed-term employees contracted for less than 12 months, including the UIF percentage range, maximum salary cap, and daily/monthly payout in Rands?\",\n  \"mode\": \"rag\",\n  \"domain\": \"HR\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/chat",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "chat"
+          ]
+        }
+      }
+    },
+    {
+      "name": "4. Pair 2 (Baseline - Control): Follow-Up via Conversational Memory",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "pm.collectionVariables.set('baseline_q2_id', jsonData.query_id);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"hr-baseline-session-01\",\n  \"query\": \"For that same leave category we just discussed, how many weeks in advance must the application form be submitted, within how many months after birth must the birth certificate be submitted to the HR Sub-Programme, and how many weeks of leave are granted in the event of a third-trimester miscarriage?\",\n  \"mode\": \"baseline\",\n  \"domain\": \"HR\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/chat",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "chat"
+          ]
+        }
+      }
+    },
+    {
+      "name": "5. Pair 2 (RAG - Treatment): Follow-Up via Conversational Memory",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "pm.collectionVariables.set('rag_q2_id', jsonData.query_id);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"hr-rag-session-01\",\n  \"query\": \"For that same leave category we just discussed, how many weeks in advance must the application form be submitted, within how many months after birth must the birth certificate be submitted to the HR Sub-Programme, and how many weeks of leave are granted in the event of a third-trimester miscarriage?\",\n  \"mode\": \"rag\",\n  \"domain\": \"HR\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/chat",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "chat"
+          ]
+        }
+      }
+    },
+    {
+      "name": "6. Pair 3 (Baseline - Control): Study Leave, Sport Leave & Family Responsibility",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "pm.collectionVariables.set('baseline_q3_id', jsonData.query_id);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"hr-baseline-session-01\",\n  \"query\": \"Under the MRTT Leave Policy (HR Manual :01), how many paid days are granted per cycle for Family Responsibility Leave and Sport Leave, and what are the exact rules for Study Leave including days per subject, maximum working days per annum, minimum service requirement, and written assignments?\",\n  \"mode\": \"baseline\",\n  \"domain\": \"HR\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/chat",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "chat"
+          ]
+        }
+      }
+    },
+    {
+      "name": "7. Pair 3 (RAG - Treatment): Study Leave, Sport Leave & Family Responsibility",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "pm.collectionVariables.set('rag_q3_id', jsonData.query_id);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"hr-rag-session-01\",\n  \"query\": \"Under the MRTT Leave Policy (HR Manual :01), how many paid days are granted per cycle for Family Responsibility Leave and Sport Leave, and what are the exact rules for Study Leave including days per subject, maximum working days per annum, minimum service requirement, and written assignments?\",\n  \"mode\": \"rag\",\n  \"domain\": \"HR\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/chat",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "chat"
+          ]
+        }
+      }
+    },
+    {
+      "name": "8. Verify Session History (GET /sessions/hr-rag-session-01)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/sessions/hr-rag-session-01",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "sessions",
+            "hr-rag-session-01"
+          ]
+        }
+      }
+    },
+    {
+      "name": "9. Evaluate Pair 1 Baseline (LLM-as-a-Judge)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query_id\": \"{{baseline_q1_id}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/evaluation/run",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "evaluation",
+            "run"
+          ]
+        }
+      }
+    },
+    {
+      "name": "10. Evaluate Pair 1 RAG (LLM-as-a-Judge)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query_id\": \"{{rag_q1_id}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/evaluation/run",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "evaluation",
+            "run"
+          ]
+        }
+      }
+    },
+    {
+      "name": "11. Evaluate Pair 2 Baseline & RAG + Pair 3 Baseline & RAG",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query_id\": \"{{rag_q3_id}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/evaluation/run",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "evaluation",
+            "run"
+          ]
+        }
+      }
+    },
+    {
+      "name": "12. Comparative Research Proof (GET /evaluation/comparison?domain=HR)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/evaluation/comparison?domain=HR",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "evaluation",
+            "comparison"
+          ],
+          "query": [
+            {
+              "key": "domain",
+              "value": "HR"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
